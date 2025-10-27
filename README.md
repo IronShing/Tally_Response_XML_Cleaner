@@ -6,6 +6,9 @@ A simple Python application to clean Tally XML files by removing empty tags and 
 
 - Removes all empty XML tags (tags with no content or only whitespace)
 - Removes tags containing zero values (e.g., `<DISCOUNT>0</DISCOUNT>`)
+- Removes tags with "No" values (e.g., `<ISDELETED>No</ISDELETED>`)
+- Removes tags with "-1" values (e.g., `<OLDAUDITENTRYIDS>-1</OLDAUDITENTRYIDS>`)
+- Removes empty LIST elements (even with attributes)
 - Removes entire COMPANY sections (TALLYMESSAGE elements containing COMPANY data)
 - Preserves the structure and formatting of important data
 - Works on Windows and Linux
@@ -106,7 +109,44 @@ All tags containing only "0" are removed:
 
 All zero-value tags are removed, while tags with actual values are preserved.
 
-### 3. COMPANY Sections
+### 3. "No" Value Tags
+
+All tags containing "No" are removed (typically boolean flags):
+
+**Before:**
+```xml
+<VOUCHERNUMBER>94</VOUCHERNUMBER>
+<DIFFACTUALQTY>No</DIFFACTUALQTY>
+<ISMSTFROMSYNC>No</ISMSTFROMSYNC>
+<ASORIGINAL>No</ASORIGINAL>
+<AUDITED>No</AUDITED>
+<ISDELETED>No</ISDELETED>
+<ISVATDUTYPAID>Yes</ISVATDUTYPAID>
+```
+
+**After:**
+```xml
+<VOUCHERNUMBER>94</VOUCHERNUMBER>
+<ISVATDUTYPAID>Yes</ISVATDUTYPAID>
+```
+
+Only "Yes" values and other meaningful content are preserved.
+
+### 4. "-1" Default Values
+
+Tags containing only "-1" (often used as null/default values) are removed:
+
+**Before:**
+```xml
+<OLDAUDITENTRYIDS.LIST TYPE="Number">
+  <OLDAUDITENTRYIDS>-1</OLDAUDITENTRYIDS>
+</OLDAUDITENTRYIDS.LIST>
+```
+
+**After:**
+Empty lists are also removed, resulting in complete removal of the parent.
+
+### 5. COMPANY Sections
 
 All `<TALLYMESSAGE>` elements that contain `<COMPANY>` data are removed:
 
