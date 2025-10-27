@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TALLYMESSAGE>
+                    <VOUCHER REMOTEID="f6f96fa4-c9c6-463a-a4fe-544548a2867c-0001c967" VCHKEY="f6f96fa4-c9c6-463a-a4fe-544548a2867c-0000b34c:000001a0" VCHTYPE="Stock Journal" ACTION="Create" OBJVIEW="Consumption Voucher View">
+                        <OLDAUDITENTRYIDS.LIST TYPE="Number">
+                            <OLDAUDITENTRYIDS>-1</OLDAUDITENTRYIDS>
+                        </OLDAUDITENTRYIDS.LIST>
+                        <DATE>20250901</DATE>
+                        <GUID>f6f96fa4-c9c6-463a-a4fe-544548a2867c-0001c967</GUID>
+                        <VOUCHERTYPENAME>Stock Journal</VOUCHERTYPENAME>
+                        <VOUCHERNUMBER>94</VOUCHERNUMBER>
+                        <FBTPAYMENTTYPE>Default</FBTPAYMENTTYPE>
+                        <PERSISTEDVIEW>Consumption Voucher View</PERSISTEDVIEW>
+                        <VCHENTRYMODE>Use for Stock Journal</VCHENTRYMODE>
+                        <ENTEREDBY>Gopal</ENTEREDBY>
+                        <DESTINATIONGODOWN>Shop Store</DESTINATIONGODOWN>
+                        <DIFFACTUALQTY>No</DIFFACTUALQTY>
+                        <ISMSTFROMSYNC>No</ISMSTFROMSYNC>
+                        <ASORIGINAL>No</ASORIGINAL>
+                        <AUDITED>No</AUDITED>
+                        <FORJOBCOSTING>No</FORJOBCOSTING>
+                        <ISOPTIONAL>No</ISOPTIONAL>
+                        <EFFECTIVEDATE>20250901</EFFECTIVEDATE>
+                        <USEFOREXCISE>No</USEFOREXCISE>
+                        <ISFORJOBWORKIN>No</ISFORJOBWORKIN>
+                        <ALLOWCONSUMPTION>No</ALLOWCONSUMPTION>
+                        <USEFORINTEREST>No</USEFORINTEREST>
+                        <USEFORGAINLOSS>No</USEFORGAINLOSS>
+                        <USEFORGODOWNTRANSFER>No</USEFORGODOWNTRANSFER>
+                        <USEFORCOMPOUND>No</USEFORCOMPOUND>
+                        <USEFORSERVICETAX>No</USEFORSERVICETAX>
+                        <ISDELETED>No</ISDELETED>
+                        <ISONHOLD>No</ISONHOLD>
+                        <ISBOENOTAPPLICABLE>No</ISBOENOTAPPLICABLE>
+                        <ISGSTSECSEVENAPPLICABLE>No</ISGSTSECSEVENAPPLICABLE>
+                        <ISEXCISEVOUCHER>No</ISEXCISEVOUCHER>
+                        <EXCISETAXOVERRIDE>No</EXCISETAXOVERRIDE>
+                        <USEFORTAXUNITTRANSFER>No</USEFORTAXUNITTRANSFER>
+                        <IGNOREPOSVALIDATION>No</IGNOREPOSVALIDATION>
+                        <EXCISEOPENING>No</EXCISEOPENING>
+                        <USEFORFINALPRODUCTION>No</USEFORFINALPRODUCTION>
+                        <ISTDSOVERRIDDEN>No</ISTDSOVERRIDDEN>
+                        <ISTCSOVERRIDDEN>No</ISTCSOVERRIDDEN>
+                        <ISTDSTCSCASHVCH>No</ISTDSTCSCASHVCH>
+                        <INCLUDEADVPYMTVCH>No</INCLUDEADVPYMTVCH>
+                        <ISSUBWORKSCONTRACT>No</ISSUBWORKSCONTRACT>
+                        <ISVATOVERRIDDEN>No</ISVATOVERRIDDEN>
+                        <IGNOREORIGVCHDATE>No</IGNOREORIGVCHDATE>
+                        <ISVATPAIDATCUSTOMS>No</ISVATPAIDATCUSTOMS>
+                        <ISDECLAREDTOCUSTOMS>No</ISDECLAREDTOCUSTOMS>
+                        <ISSERVICETAXOVERRIDDEN>No</ISSERVICETAXOVERRIDDEN>
+                        <ISISDVOUCHER>No</ISISDVOUCHER>
+                        <ISEXCISEOVERRIDDEN>No</ISEXCISEOVERRIDDEN>
+                        <ISEXCISESUPPLYVCH>No</ISEXCISESUPPLYVCH>
+                        <ISGSTOVERRIDDEN>No</ISGSTOVERRIDDEN>
+                        <GSTNOTEXPORTED>No</GSTNOTEXPORTED>
+                        <IGNOREGSTINVALIDATION>No</IGNOREGSTINVALIDATION>
+                        <ISGSTREFUND>No</ISGSTREFUND>
+                        <OVRDNEWAYBILLAPPLICABILITY>No</OVRDNEWAYBILLAPPLICABILITY>
+                        <ISVATPRINCIPALACCOUNT>No</ISVATPRINCIPALACCOUNT>
+                        <IGNOREEINVVALIDATION>No</IGNOREEINVVALIDATION>
+                        <IRNJSONEXPORTED>No</IRNJSONEXPORTED>
+                        <IRNCANCELLED>No</IRNCANCELLED>
+                        <ISSHIPPINGWITHINSTATE>No</ISSHIPPINGWITHINSTATE>
+                        <ISOVERSEASTOURISTTRANS>No</ISOVERSEASTOURISTTRANS>
+                        <ISDESIGNATEDZONEPARTY>No</ISDESIGNATEDZONEPARTY>
+                        <ISCANCELLED>No</ISCANCELLED>
+                        <HASCASHFLOW>No</HASCASHFLOW>
+                        <ISPOSTDATED>No</ISPOSTDATED>
+                        <USETRACKINGNUMBER>No</USETRACKINGNUMBER>
+                        <ISINVOICE>No</ISINVOICE>
+                        <MFGJOURNAL>No</MFGJOURNAL>
+                        <HASDISCOUNTS>No</HASDISCOUNTS>
+                        <ASPAYSLIP>No</ASPAYSLIP>
+                        <ISCOSTCENTRE>No</ISCOSTCENTRE>
+                        <ISSTXNONREALIZEDVCH>No</ISSTXNONREALIZEDVCH>
+                        <ISEXCISEMANUFACTURERON>No</ISEXCISEMANUFACTURERON>
+                        <ISBLANKCHEQUE>No</ISBLANKCHEQUE>
+                        <ISVOID>No</ISVOID>
+                        <ORDERLINESTATUS>No</ORDERLINESTATUS>
+                        <VATISAGNSTCANCSALES>No</VATISAGNSTCANCSALES>
+                        <VATISPURCEXEMPTED>No</VATISPURCEXEMPTED>
+                        <ISVATRESTAXINVOICE>No</ISVATRESTAXINVOICE>
+                        <VATISASSESABLECALCVCH>No</VATISASSESABLECALCVCH>
+                        <ISVATDUTYPAID>Yes</ISVATDUTYPAID>
+                        <ISDELIVERYSAMEASCONSIGNEE>No</ISDELIVERYSAMEASCONSIGNEE>
+                        <ISDISPATCHSAMEASCONSIGNOR>No</ISDISPATCHSAMEASCONSIGNOR>
+                        <ISDELETEDVCHRETAINED>No</ISDELETEDVCHRETAINED>
+                        <CHANGEVCHMODE>No</CHANGEVCHMODE>
+                        <RESETIRNQRCODE>No</RESETIRNQRCODE>
+                        <ALTERID> 129440</ALTERID>
+                        <MASTERID> 117095</MASTERID>
+                        <VOUCHERKEY>197138998886816</VOUCHERKEY>
+                        <INVENTORYENTRIESIN.LIST>
+                            <STOCKITEMNAME>TPU "B"-Black</STOCKITEMNAME>
+                            <ISDEEMEDPOSITIVE>Yes</ISDEEMEDPOSITIVE>
+                            <ISLASTDEEMEDPOSITIVE>Yes</ISLASTDEEMEDPOSITIVE>
+                            <ISAUTONEGATE>No</ISAUTONEGATE>
+                            <ISCUSTOMSCLEARANCE>No</ISCUSTOMSCLEARANCE>
+                            <ISTRACKCOMPONENT>No</ISTRACKCOMPONENT>
+                            <ISTRACKPRODUCTION>No</ISTRACKPRODUCTION>
+                            <ISPRIMARYITEM>No</ISPRIMARYITEM>
+                            <ISSCRAP>No</ISSCRAP>
+                            <RATE>1.792/Ltr</RATE>
+                            <AMOUNT>-358.400</AMOUNT>
+                            <ACTUALQTY> 200 Ltr</ACTUALQTY>
+                            <BILLEDQTY> 200 Ltr</BILLEDQTY>
+                            <BATCHALLOCATIONS.LIST>
+                                <GODOWNNAME>Shop Store</GODOWNNAME>
+                                <BATCHNAME>Primary Batch</BATCHNAME>
+                                <DESTINATIONGODOWNNAME>Shop Store</DESTINATIONGODOWNNAME>
+                                <DYNAMICCSTISCLEARED>No</DYNAMICCSTISCLEARED>
+                                <AMOUNT>-358.400</AMOUNT>
+                                <ACTUALQTY> 200 Ltr</ACTUALQTY>
+                                <BILLEDQTY> 200 Ltr</BILLEDQTY>
+                                </BATCHALLOCATIONS.LIST>
+                            </INVENTORYENTRIESIN.LIST>
+                        <INVENTORYENTRIESOUT.LIST>
+                            <STOCKITEMNAME>TPU "B"-Black</STOCKITEMNAME>
+                            <ISDEEMEDPOSITIVE>No</ISDEEMEDPOSITIVE>
+                            <ISLASTDEEMEDPOSITIVE>No</ISLASTDEEMEDPOSITIVE>
+                            <ISAUTONEGATE>No</ISAUTONEGATE>
+                            <ISCUSTOMSCLEARANCE>No</ISCUSTOMSCLEARANCE>
+                            <ISTRACKCOMPONENT>No</ISTRACKCOMPONENT>
+                            <ISTRACKPRODUCTION>No</ISTRACKPRODUCTION>
+                            <ISPRIMARYITEM>No</ISPRIMARYITEM>
+                            <ISSCRAP>No</ISSCRAP>
+                            <RATE>1.792/Ltr</RATE>
+                            <AMOUNT>358.400</AMOUNT>
+                            <ACTUALQTY> 200 Ltr</ACTUALQTY>
+                            <BILLEDQTY> 200 Ltr</BILLEDQTY>
+                            <BATCHALLOCATIONS.LIST>
+                                <GODOWNNAME>Main Location</GODOWNNAME>
+                                <BATCHNAME>Primary Batch</BATCHNAME>
+                                <DYNAMICCSTISCLEARED>No</DYNAMICCSTISCLEARED>
+                                <AMOUNT>358.400</AMOUNT>
+                                <ACTUALQTY> 200 Ltr</ACTUALQTY>
+                                <BILLEDQTY> 200 Ltr</BILLEDQTY>
+                                </BATCHALLOCATIONS.LIST>
+                            </INVENTORYENTRIESOUT.LIST>
+                        </VOUCHER>
+                </TALLYMESSAGE>
