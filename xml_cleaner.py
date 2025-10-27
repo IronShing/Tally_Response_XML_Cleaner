@@ -13,7 +13,7 @@ from pathlib import Path
 def remove_empty_elements(element):
     """
     Recursively remove empty elements from the XML tree.
-    An element is considered empty if it has no children and its text is None or whitespace.
+    An element is considered empty if it has no children and its text is None, whitespace, or "0".
     """
     # Process children first (bottom-up approach)
     for child in list(element):
@@ -24,7 +24,7 @@ def remove_empty_elements(element):
         # Check if element is empty (no children, no meaningful text, no attributes)
         if len(child) == 0:
             text = child.text
-            if text is None or text.strip() == "":
+            if text is None or text.strip() == "" or text.strip() == "0":
                 # Only remove if no important attributes
                 if len(child.attrib) == 0:
                     element.remove(child)

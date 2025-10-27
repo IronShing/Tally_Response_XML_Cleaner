@@ -5,6 +5,7 @@ A simple Python application to clean Tally XML files by removing empty tags and 
 ## Features
 
 - Removes all empty XML tags (tags with no content or only whitespace)
+- Removes tags containing zero values (e.g., `<DISCOUNT>0</DISCOUNT>`)
 - Removes entire COMPANY sections (TALLYMESSAGE elements containing COMPANY data)
 - Preserves the structure and formatting of important data
 - Works on Windows and Linux
@@ -84,7 +85,28 @@ All tags with no content or only whitespace are removed:
 **After:**
 These tags are completely removed.
 
-### 2. COMPANY Sections
+### 2. Zero-Value Tags
+
+All tags containing only "0" are removed:
+
+**Before:**
+```xml
+<DISCOUNT>0</DISCOUNT>
+<VATTAXRATE>0</VATTAXRATE>
+<ORIGINVGOODSQTY>0</ORIGINVGOODSQTY>
+<EXCISEMRPABATEMENT>0</EXCISEMRPABATEMENT>
+<ADDLCOSTPERC>0</ADDLCOSTPERC>
+<AMOUNT>350.000</AMOUNT>
+```
+
+**After:**
+```xml
+<AMOUNT>350.000</AMOUNT>
+```
+
+All zero-value tags are removed, while tags with actual values are preserved.
+
+### 3. COMPANY Sections
 
 All `<TALLYMESSAGE>` elements that contain `<COMPANY>` data are removed:
 
