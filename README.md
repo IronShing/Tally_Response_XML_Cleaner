@@ -4,6 +4,7 @@ A simple Python application to clean Tally XML files by removing empty tags and 
 
 ## Features
 
+- **Handles invalid XML characters** - Automatically removes invalid character references like `&#4;` that cause parsing errors
 - Removes all empty XML tags (tags with no content or only whitespace)
 - Removes tags containing zero values (e.g., `<DISCOUNT>0</DISCOUNT>`)
 - Removes tags with "No" values (e.g., `<ISDELETED>No</ISDELETED>`)
@@ -211,8 +212,9 @@ python xml_cleaner.py --help
 - Check that the file path is correct
 - Use quotes around paths with spaces: `python xml_cleaner.py "my file.xml"`
 
-### Error: "Error parsing XML file"
-- Ensure your input file is valid XML
+### Error: "Error parsing XML file: reference to invalid character number"
+- **This is now automatically handled!** The cleaner removes invalid character references like `&#4;` before parsing
+- If you still see this error, the file may have other XML syntax issues
 - Check that the file is not corrupted
 - Verify the file encoding is UTF-8
 

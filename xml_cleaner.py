@@ -7,7 +7,53 @@ Removes empty tags and unwanted sections from Tally XML files.
 import xml.etree.ElementTree as ET
 import argparse
 import sys
+import re
 from pathlib import Path
+
+
+def clean_invalid_xml_chars(xml_content):
+    """
+    Remove invalid XML character references that cause parsing errors.
+    Tally sometimes exports invalid control characters like &#4;
+
+    Valid XML characters are:
+    - #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+
+    This function removes invalid numeric character references.
+    """
+    def is_valid_xml_char(char_code):
+        """Check if a character code is valid in XML"""
+        return (
+            char_code == 0x09 or
+            char_code == 0x0A or
+            char_code == 0x0D or
+            (0x20 <= char_code <= 0xD7FF) or
+            (0xE000 <= char_code <= 0xFFFD) or
+            (0x10000 <= char_code <= 0x10FFFF)
+        )
+
+    def replace_invalid_char(match):
+        """Replace invalid character references with empty string"""
+        char_ref = match.group(1)
+        try:
+            # Handle both decimal (&#4;) and hex (&#x4;) references
+            if char_ref.startswith('x'):
+                char_code = int(char_ref[1:], 16)
+            else:
+                char_code = int(char_ref)
+
+            if is_valid_xml_char(char_code):
+                return match.group(0)  # Keep valid characters
+            else:
+                return ''  # Remove invalid characters
+        except ValueError:
+            return match.group(0)  # Keep if we can't parse
+
+    # Pattern to match character references like &#4; or &#x4;
+    pattern = r'&#(x?[0-9a-fA-F]+);'
+    cleaned = re.sub(pattern, replace_invalid_char, xml_content)
+
+    return cleaned
 
 
 def remove_empty_elements(element):
@@ -66,9 +112,15 @@ def clean_xml(input_file, output_file):
         output_file: Path to output XML file
     """
     try:
-        # Parse the XML file
-        tree = ET.parse(input_file)
-        root = tree.getroot()
+        # Read the XML file content
+        with open(input_file, 'r', encoding='utf-8') as f:
+            xml_content = f.read()
+
+        # Clean invalid XML character references
+        xml_content = clean_invalid_xml_chars(xml_content)
+
+        # Parse the cleaned XML
+        root = ET.fromstring(xml_content)
 
         # Remove company sections
         remove_company_sections(root)
@@ -77,6 +129,7 @@ def clean_xml(input_file, output_file):
         remove_empty_elements(root)
 
         # Write the cleaned XML to output file
+        tree = ET.ElementTree(root)
         tree.write(output_file, encoding='utf-8', xml_declaration=True)
 
         print(f"✓ Successfully cleaned XML file")
@@ -104,6 +157,9 @@ def clean_xml_from_string(xml_string):
         Cleaned XML as string
     """
     try:
+        # Clean invalid XML character references
+        xml_string = clean_invalid_xml_chars(xml_string)
+
         # Parse the XML string
         root = ET.fromstring(xml_string)
 
@@ -174,8 +230,10 @@ Examples:
     if args.output:
         if args.output == '-':
             # Write to stdout
-            tree = ET.parse(input_path)
-            root = tree.getroot()
+            with open(input_path, 'r', encoding='utf-8') as f:
+                xml_content = f.read()
+            xml_content = clean_invalid_xml_chars(xml_content)
+            root = ET.fromstring(xml_content)
             remove_company_sections(root)
             remove_empty_elements(root)
             print(ET.tostring(root, encoding='unicode'))
