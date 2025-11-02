@@ -64,7 +64,7 @@ def remove_empty_elements(element):
     - "0" (zero)
     - "No" (boolean false)
     - "-1" (default/null value)
-    Also removes empty LIST elements even if they have attributes.
+    Also removes empty LIST elements and elements with only TYPE attributes.
     """
     # Process children first (bottom-up approach)
     for child in list(element):
@@ -85,9 +85,14 @@ def remove_empty_elements(element):
                 if text_stripped in ("", "0", "No", "-1"):
                     should_remove = True
 
-            # Remove if empty AND (no attributes OR is a .LIST element)
+            # Remove if empty AND (no attributes OR only TYPE attribute OR is a .LIST element)
             if should_remove:
-                if len(child.attrib) == 0 or child.tag.endswith('.LIST'):
+                # Check if only has TYPE attribute
+                has_only_type_attr = (
+                    len(child.attrib) == 1 and 'TYPE' in child.attrib
+                )
+
+                if len(child.attrib) == 0 or has_only_type_attr or child.tag.endswith('.LIST'):
                     element.remove(child)
 
 

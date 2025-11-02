@@ -6,6 +6,7 @@ A simple Python application to clean Tally XML files by removing empty tags and 
 
 - **Handles invalid XML characters** - Automatically removes invalid character references like `&#4;` that cause parsing errors
 - Removes all empty XML tags (tags with no content or only whitespace)
+- Removes empty tags with TYPE attributes (e.g., `<ADDLAMOUNT TYPE="Amount" />`)
 - Removes tags containing zero values (e.g., `<DISCOUNT>0</DISCOUNT>`)
 - Removes tags with "No" values (e.g., `<ISDELETED>No</ISDELETED>`)
 - Removes tags with "-1" values (e.g., `<OLDAUDITENTRYIDS>-1</OLDAUDITENTRYIDS>`)
@@ -89,7 +90,29 @@ All tags with no content or only whitespace are removed:
 **After:**
 These tags are completely removed.
 
-### 2. Zero-Value Tags
+### 2. Empty Tags with TYPE Attributes
+
+Empty self-closing tags with TYPE attributes are removed:
+
+**Before:**
+```xml
+<STOCKITEMNAME TYPE="String">PP - NanoGard 60" ECO - Roll</STOCKITEMNAME>
+<STATNATURENAME TYPE="String" />
+<ISZRBASICSERVICE TYPE="String" />
+<ADDLAMOUNT TYPE="Amount" />
+<VATASSESSABLEVALUE TYPE="Amount" />
+<AMOUNT TYPE="Amount">690.000</AMOUNT>
+```
+
+**After:**
+```xml
+<STOCKITEMNAME TYPE="String">PP - NanoGard 60" ECO - Roll</STOCKITEMNAME>
+<AMOUNT TYPE="Amount">690.000</AMOUNT>
+```
+
+Empty tags with TYPE attributes are removed, preserving only tags with actual values.
+
+### 3. Zero-Value Tags
 
 All tags containing only "0" are removed:
 
@@ -110,7 +133,7 @@ All tags containing only "0" are removed:
 
 All zero-value tags are removed, while tags with actual values are preserved.
 
-### 3. "No" Value Tags
+### 4. "No" Value Tags
 
 All tags containing "No" are removed (typically boolean flags):
 
@@ -133,7 +156,7 @@ All tags containing "No" are removed (typically boolean flags):
 
 Only "Yes" values and other meaningful content are preserved.
 
-### 4. "-1" Default Values
+### 5. "-1" Default Values
 
 Tags containing only "-1" (often used as null/default values) are removed:
 
@@ -147,7 +170,7 @@ Tags containing only "-1" (often used as null/default values) are removed:
 **After:**
 Empty lists are also removed, resulting in complete removal of the parent.
 
-### 5. COMPANY Sections
+### 6. COMPANY Sections
 
 All `<TALLYMESSAGE>` elements that contain `<COMPANY>` data are removed:
 
