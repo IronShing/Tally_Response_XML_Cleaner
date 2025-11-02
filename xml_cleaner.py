@@ -64,6 +64,7 @@ def remove_empty_elements(element):
     - "0" (zero)
     - "No" (boolean false)
     - "-1" (default/null value)
+    - "Not Applicable" (placeholder value)
     Also removes empty LIST elements and elements with only TYPE attributes.
     """
     # Process children first (bottom-up approach)
@@ -81,8 +82,8 @@ def remove_empty_elements(element):
                 should_remove = True
             else:
                 text_stripped = text.strip()
-                # Remove if empty, zero, "No", or "-1"
-                if text_stripped in ("", "0", "No", "-1"):
+                # Remove if empty, zero, "No", "-1", or "Not Applicable"
+                if text_stripped in ("", "0", "No", "-1", "Not Applicable"):
                     should_remove = True
 
             # Remove if empty AND (no attributes OR only TYPE attribute OR is a .LIST element)

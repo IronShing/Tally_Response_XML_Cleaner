@@ -10,6 +10,7 @@ A simple Python application to clean Tally XML files by removing empty tags and 
 - Removes tags containing zero values (e.g., `<DISCOUNT>0</DISCOUNT>`)
 - Removes tags with "No" values (e.g., `<ISDELETED>No</ISDELETED>`)
 - Removes tags with "-1" values (e.g., `<OLDAUDITENTRYIDS>-1</OLDAUDITENTRYIDS>`)
+- Removes tags with "Not Applicable" values (e.g., `<INDENTNO> Not Applicable</INDENTNO>`)
 - Removes empty LIST elements (even with attributes)
 - Removes entire COMPANY sections (TALLYMESSAGE elements containing COMPANY data)
 - Preserves the structure and formatting of important data
@@ -170,7 +171,28 @@ Tags containing only "-1" (often used as null/default values) are removed:
 **After:**
 Empty lists are also removed, resulting in complete removal of the parent.
 
-### 6. COMPANY Sections
+### 6. "Not Applicable" Placeholder Values
+
+Tags containing "Not Applicable" (placeholder/default text) are removed:
+
+**Before:**
+```xml
+<GODOWNNAME TYPE="String">Main Location</GODOWNNAME>
+<INDENTNO TYPE="String"> Not Applicable</INDENTNO>
+<ORDERNO TYPE="String"> Not Applicable</ORDERNO>
+<TRACKINGNUMBER TYPE="String"> Not Applicable</TRACKINGNUMBER>
+<BATCHID TYPE="Number"> 6171</BATCHID>
+```
+
+**After:**
+```xml
+<GODOWNNAME TYPE="String">Main Location</GODOWNNAME>
+<BATCHID TYPE="Number"> 6171</BATCHID>
+```
+
+Placeholder "Not Applicable" values are removed, keeping only meaningful data.
+
+### 7. COMPANY Sections
 
 All `<TALLYMESSAGE>` elements that contain `<COMPANY>` data are removed:
 
